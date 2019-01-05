@@ -55,7 +55,6 @@ namespace Breeze.Daemon
 
                 var isRegTest = args.Contains("regtest", comparer);
                 var isTestNet = args.Contains("testnet", comparer);
-                var isStratis = args.Contains("stratis", comparer);
                 var isImpleum = args.Contains("impleum", comparer);
                 var isLight = args.Contains("light", comparer);
 
@@ -95,53 +94,28 @@ namespace Breeze.Daemon
 
                 NodeSettings nodeSettings;
 
-                if (isStratis)
+                if (isImpleum)
                 {
-                    //if (NodeSettings.PrintHelp(args, Network.StratisMain))
-                    //    return;
-
                     Network network;
                     if (isRegTest)
                     {
-                        network = Network.StratisRegTest;
+                        network = Network.ImpleumRegTest;
                     }
                     else if (isTestNet)
                     {
-                        args = args.Append("-addnode=51.141.28.47").ToArray(); // TODO: fix this temp hack
-                        network = Network.StratisTest;
+                        args = args.Append("-addnode=94.131.240.45").ToArray(); // TODO: fix this temp hack
+                        network = Network.ImpleumTest;
                     }
                     else
                     {
-                        network = Network.StratisMain;
+                        network = Network.ImpleumMain;
                     }
 
                     nodeSettings = new NodeSettings(network, ProtocolVersion.ALT_PROTOCOL_VERSION, agent, args: args, loadConfiguration: false);
                 }
                 else
                 {
-                    if (isImpleum)
-                    {
-                        Network network;
-                        if (isRegTest)
-                        {
-                            network = Network.ImpleumRegTest;
-                        }
-                        else if (isTestNet)
-                        {
-                            args = args.Append("-addnode=94.131.240.45").ToArray(); // TODO: fix this temp hack
-                            network = Network.ImpleumTest;
-                        }
-                        else
-                        {
-                            network = Network.ImpleumMain;
-                        }
-
-                        nodeSettings = new NodeSettings(network, ProtocolVersion.ALT_PROTOCOL_VERSION, agent, args: args, loadConfiguration: false);
-                    }
-                    else
-                    {
-                        nodeSettings = new NodeSettings(agent: agent, args: args, loadConfiguration: false);
-                    }
+                    nodeSettings = new NodeSettings(agent: agent, args: args, loadConfiguration: false);
                 }
 
                 IFullNodeBuilder fullNodeBuilder = null;
@@ -161,7 +135,7 @@ namespace Breeze.Daemon
                     fullNodeBuilder = new FullNodeBuilder()
                         .UseNodeSettings(nodeSettings);
 
-                    if (isStratis || isImpleum)
+                    if (isImpleum)
                         fullNodeBuilder.UsePosConsensus();
                     else
                         fullNodeBuilder.UsePowConsensus();
@@ -173,7 +147,7 @@ namespace Breeze.Daemon
                         .UseWallet()
                         .UseWatchOnlyWallet();
 
-                    if (isStratis || isImpleum)
+                    if (isImpleum)
                         fullNodeBuilder.AddPowPosMining();
                     else
                         fullNodeBuilder.AddMining();
@@ -207,39 +181,20 @@ namespace Breeze.Daemon
                 // Currently TumbleBit is bitcoin only
                 if (useTumblebit)
                 {
-                    if (isStratis)
+                    if (isImpleum)
                     {
                         if (string.IsNullOrEmpty(registrationStoreDirectoryPath))
                         {
                             string networkName;
                             if (isRegTest)
-                                networkName = "StratisRegTest";
+                                networkName = "ImpleumRegTest";
                             else if (isTestNet)
-                                networkName = "StratisTest";
+                                networkName = "ImpleumTest";
                             else
-                                networkName = "StratisMain";
+                                networkName = "ImpleumMain";
 
-                            registrationStoreDirectoryPath = Path.Combine(dataDir, "stratis", networkName,
+                            registrationStoreDirectoryPath = Path.Combine(dataDir, "impleum", networkName,
                                 "registrationHistory.json");
-                        }
-                    }
-                    else
-                    {
-                        if (isImpleum)
-                        {
-                            if (string.IsNullOrEmpty(registrationStoreDirectoryPath))
-                            {
-                                string networkName;
-                                if (isRegTest)
-                                    networkName = "ImpleumRegTest";
-                                else if (isTestNet)
-                                    networkName = "ImpleumTest";
-                                else
-                                    networkName = "ImpleumMain";
-
-                                registrationStoreDirectoryPath = Path.Combine(dataDir, "impleum", networkName,
-                                    "registrationHistory.json");
-                            }
                         }
                     }
 

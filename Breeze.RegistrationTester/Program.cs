@@ -49,7 +49,7 @@ namespace Breeze.RegistrationTester
 			try
 	        {
 		        var registrationToken = new RegistrationToken();
-		        registrationToken.ParseTransaction(tx, Network.StratisMain);
+		        registrationToken.ParseTransaction(tx, Network.ImpleumMain);
 
 				Console.WriteLine(JsonConvert.SerializeObject(registrationToken, Formatting.Indented));
 			}

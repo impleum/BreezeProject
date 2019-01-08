@@ -1,4 +1,4 @@
-# Breeze.UI
+# Privacy.UI
 
 Graphical User Interface for Stratis Breeze Wallet.
 

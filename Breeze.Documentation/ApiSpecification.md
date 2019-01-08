@@ -127,7 +127,7 @@ http://localhost:37220/api/wallet/general-info?name=testwallet
 ```
 {
   "walletFilePath":null,
-  "network":"testnet", //"main", "testnet", "stratismain", "stratistest"
+  "network":"testnet", //"main", "testnet", "impleummain", "impleumtest"
   "creationTime":"1511169493",
   "isDecrypted":true,
   "lastBlockSyncedHeight":1231116,
@@ -229,7 +229,7 @@ This endpoint will get the first account containing no transaction or will creat
 {
     "walletName": "testwallet",    
     "password": "testpassword",
-    "coinType": 105 // 0 - Bitcoin, 105 - Stratis
+    "coinType": 105 // 0 - Bitcoin, 105 - Impleum
 }
 ```
 ### Responses
@@ -242,7 +242,7 @@ This endpoint will get the first account containing no transaction or will creat
 This endpoint will get the last address containing no transaction or will create a new address.
 ### Query parameters
 `walletName` (required) - the name of the wallet in which this address is contained.  
-`coinType` (required) - the type of coin for which to get the address, e.g 0 for bitcoin, 105 for stratis.  
+`coinType` (required) - the type of coin for which to get the address, e.g 0 for bitcoin, 105 for impleum.  
 `accountName` (required) - the name of the account in which this address is contained.  
 ### Responses
 ```
@@ -269,7 +269,7 @@ This endpoint will get the last address containing no transaction or will create
 ## GET /wallet/history - Displays the history of the specified wallet account
 ### Query parameters
 `walletName` (required) - the name of the wallet.  
-`coinType` (required) - the type of coin, e.g 0 for bitcoin, 105 for stratis.  
+`coinType` (required) - the type of coin, e.g 0 for bitcoin, 105 for impleum.  
 ### Responses
 ```
 {
@@ -303,7 +303,7 @@ This endpoint will get the last address containing no transaction or will create
 ## GET /wallet/balance - Displays the balances of the specified wallet account
 ### Query parameters
 `walletName` (required) - the name of the wallet.  
-`coinType` (required) - the type of coin, e.g 0 for bitcoin, 105 for stratis.  
+`coinType` (required) - the type of coin, e.g 0 for bitcoin, 105 for impleum.  
 
 ### Examples
 #### Request

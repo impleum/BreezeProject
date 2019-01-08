@@ -5,9 +5,9 @@
 [1]: https://ci.appveyor.com/api/projects/status/kljfu81sunb2cm3l?svg=true
 [2]: https://ci.appveyor.com/project/breezehubadmin/breezeproject
 [3]: https://travis-ci.org/impleum/PrivateProject.svg?branch=master
-[4]: https://travis-ci.org/impleum/PrivateProject
-[5]: https://travis-ci.org/impleum/PrivateProject.svg?branch=master
-[6]: https://travis-ci.org/impleum/PrivateProject
+[4]: https://travis-ci.org/impleum/PrivacyProject
+[5]: https://travis-ci.org/impleum/PrivacyProject.svg?branch=master
+[6]: https://travis-ci.org/impleum/PrivacyProject
 
 
 Impleum Private Wallet with NTumbleBit Privacy Protocol
@@ -24,7 +24,7 @@ Lite daemon is the backend REST service, hosting a Bitcoin node upon which Priva
 # Clone and go in the directory
 mkdir C:\Opt
 cd C:\Opt
-git clone https://github.com/impleum/PrivateProject --recursive
+git clone https://github.com/impleum/PrivacyProject --recursive
 
 # Go in the Lite deamon folder
 cd C:\Opt\PrivateProject\Breeze\src\Breeze.Daemon
@@ -61,7 +61,7 @@ Thank you and enjoy!
 [8]: https://ci.appveyor.com/api/projects/breezehubadmin/breezeproject/artifacts/breeze_out/breeze-win7-x64-Release.zip?job=Environment%3A%20win_runtime%3Dwin7-x64%2C%20arch%3Dx64%2C%20plat%3Dwin32
 [9]: https://ci.appveyor.com/api/projects/breezehubadmin/breezeproject/artifacts/breeze_out/breeze-win10-x86-Release.zip?job=Environment%3A%20win_runtime%3Dwin10-x86%2C%20arch%3Dia32%2C%20plat%3Dwin32
 [10]: https://ci.appveyor.com/api/projects/breezehubadmin/breezeproject/artifacts/breeze_out/breeze-win10-x64-Release.zip?job=Environment%3A%20win_runtime%3Dwin10-x64%2C%20arch%3Dx64%2C%20plat%3Dwin32
-[11]: https://github.com/impleum/PrivateProject/releases/download/cd-unstable/breeze-ubuntu.14.04-x64-Release.zip
-[12]: https://github.com/impleum/PrivateProject/releases/download/cd-unstable/breeze-ubuntu.14.04-x64-Release.zip
-[13]: https://github.com/impleum/PrivateProject/releases/download/cd-unstable/breeze-osx.10.11-x64-Release.zip
-[14]: https://github.com/impleum/PrivateProject/releases/download/cd-unstable/breeze-osx.10.12-x64-Release.zip
+[11]: https://github.com/impleum/PrivacyProject/releases/download/cd-unstable/breeze-ubuntu.14.04-x64-Release.zip
+[12]: https://github.com/impleum/PrivacyProject/releases/download/cd-unstable/breeze-ubuntu.14.04-x64-Release.zip
+[13]: https://github.com/impleum/PrivacyProject/releases/download/cd-unstable/breeze-osx.10.11-x64-Release.zip
+[14]: https://github.com/impleum/PrivacyProject/releases/download/cd-unstable/breeze-osx.10.12-x64-Release.zip

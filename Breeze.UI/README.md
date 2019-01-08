@@ -7,7 +7,7 @@ Graphical User Interface for Stratis Breeze Wallet.
 Clone this repository locally:
 
 ``` bash
-git clone https://www.github.com/stratisproject/breeze.git
+git clone https://github.com/impleum/PrivacyProject.git
 ```
 
 Navigate to the Breeze UI in a terminal:

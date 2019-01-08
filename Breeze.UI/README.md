@@ -10,7 +10,7 @@ Clone this repository locally:
 git clone https://github.com/impleum/PrivacyProject.git
 ```
 
-Navigate to the Breeze UI in a terminal:
+Navigate to the Privacy UI in a terminal:
 ``` bash
 cd ./Breeze/Breeze.UI
 ```

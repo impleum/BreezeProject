@@ -35,7 +35,7 @@ If you have already installed a previous version of `angular-cli`, follow [Angul
 ## To build for development
 
 #### Terminal Window 1
-[Run the daemon](https://github.com/stratisproject/Breeze/blob/master/README.md#daemon-build)  
+[Run the daemon](https://github.com/impleum/PrivacyProject/blob/master/README.md#daemon-build)  
 
 #### Terminal Window 2
 `npm start`  

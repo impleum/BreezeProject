@@ -6,7 +6,7 @@ This document can help you with your first steps with the Alpha version of *Bree
 
 Instructions detailing how to install the alpha version are [here](https://github.com/BreezeHub/Breeze/blob/tumblebit-alpha/Breeze.Documentation/alpha/release.md).
 
-#### Breeze Privacy Protocol
+#### Impleum Privacy Protocol
 
 #### Create your Source Wallet
 

@@ -9,6 +9,9 @@ import { ModalService } from '../../shared/services/modal.service';
 import { WalletInfo } from '../../shared/classes/wallet-info';
 import { Error } from '../../shared/classes/error';
 import { TransactionInfo } from '../../shared/classes/transaction-info';
+import { ConditionalExpr } from '@angular/compiler';
+
+const { shell } = require('electron');
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -24,7 +27,7 @@ export class TransactionDetailsComponent implements OnInit, OnDestroy {
   public confirmations: number;
   private generalWalletInfoSubscription: Subscription;
   private lastBlockSyncedHeight: number;
-
+  private explorerLink: string;
   constructor(
     private apiService: ApiService,
     private globalService: GlobalService,
@@ -34,6 +37,22 @@ export class TransactionDetailsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.startSubscriptions();
     this.coinUnit = this.globalService.getCoinUnit();
+    let cn = this.globalService.getCoinName();
+
+    if(cn === "TestBitcoin"){
+      this.explorerLink = 'https://www.blocktrail.com/tBTC/tx/';
+    }else if( cn ===  "TestStratis"){
+      this.explorerLink = 'http://texplorer.impleum.com/tx/';
+    }else if( cn ===  "Stratis"){
+      this.explorerLink = 'https://chainz.cryptoid.info/impl/block.dws?';
+    }else if( cn ===  "Bitcoin"){
+      this.explorerLink = 'https://www.blockchain.com/btc/tx/';
+    }
+
+  }
+
+  public openExplorer() {
+    shell.openExternal(this.explorerLink + this.transaction.transactionId);
   }
 
   ngOnDestroy() {

@@ -48,7 +48,7 @@ export class ApiService {
     return `http://localhost:${this.globalService.bitcoinApiPort}/api`;
   }
   get stratisApiUrl() {
-    return `http://localhost:${this.globalService.stratisApiPort}/api`;
+    return `http://localhost:${this.globalService.impleumApiPort}/api`;
   }
   get currentApiUrl() {
     if (!this._currentApiUrl) {
@@ -70,7 +70,7 @@ export class ApiService {
   getStratisWalletFiles(): Observable<any> {
     return this.http
       .get(this.stratisApiUrl + '/wallet/files')
-      .map((response: Response) => response);
+      .map((response: Response) => {console.log(response); return response});
   }
   /**
    * Get a new mnemonic

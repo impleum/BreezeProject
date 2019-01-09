@@ -2,15 +2,15 @@
  *  BreezeD command line arguments
  ************************************************************************************************************************************************
  *	 -testnet			: Use testnet network; peers should be discovered automatically
- *	 -regtest			: Use testnet network; you need to use addnode or connect in the stratis.conf or bitcoin.conf to connect to any peers
- *   -noDaemons			: Do not start the BreezeD daemons for stratis and bitcoin networks
+ *	 -regtest			: Use testnet network; you need to use addnode or connect in the impleum.conf or bitcoin.conf to connect to any peers
+ *   -noDaemons			: Do not start the BreezeD daemons for impleum and bitcoin networks
  *	 -noTor				: Disable Tor and use TCP connection handler; only works for regtest network
  *	 -tumblerProtocol	: Can be set to TCP (default) or Http. The Http can only be used when noTor switch is used as well
  *	 -dataDir			: Node's data directory; this option is passed to the BreezeD as -datadir
  *	 -bitcoinPort		: Bitcoin protocol port; this is passed to the BreezeD as -port
- *	 -stratisPort		: Stratis protocol port; this is passed to the BreezeD as -port
+ *	 -impleumPort		: Impleim protocol port; this is passed to the BreezeD as -port
  *	 -bitcoinApiPort	: Bitcoin API port; this is passed to the BreezeD as -apiport
- *	 -stratisApiPort	: Stratis API port; this is passed to the BreezeD as -apiport
+ *	 -impleumApiPort	: Impleim API port; this is passed to the BreezeD as -apiport
  *   -storeDir			: Location of the registrationHistory.json file; this is passed to the BreezeD as -storeDir
  ************************************************************************************************************************************************/
 
@@ -34,33 +34,35 @@ let tumblerProtocol;
 let dataDir;
 let storeDir;
 let bitcoinPort;
-let stratisPort;
+let impleumPort;
 let startDaemons;
-(<any>global).bitcoinApiPort = 37220;
-(<any>global).stratisApiPort = 37221;
+(<any>global).bitcoinApiPort = 38220;
+(<any>global).impleumApiPort = 39222;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve' || val === '-serve');
 startDaemons = !args.some(val => val === '--noDaemons' || val === '-noDaemons');
 
-if (args.some(val => val === '--testnet' || val === '-testnet')) {
-  testnet = true;
-  (<any>global).bitcoinApiPort = 38220;
-  (<any>global).stratisApiPort = 38221;
-} else if (args.some(val => val === '--regtest' || val === '-regtest')) {
-  regtest = true;
-  (<any>global).bitcoinApiPort = 37220;
-  (<any>global).stratisApiPort = 37221;
-} else if (args.some(val => val === '--mainnet' || val === '-mainnet')) {
-  (<any>global).bitcoinApiPort = 37220;
-  (<any>global).stratisApiPort = 37221;
-}
+testnet = true;
+
+// if (args.some(val => val === '--testnet' || val === '-testnet')) {
+//   testnet = true;
+//   (<any>global).bitcoinApiPort = 38220;
+//   (<any>global).impleumApiPort = 39222;
+// } else if (args.some(val => val === '--regtest' || val === '-regtest')) {
+//   regtest = true;
+//   (<any>global).bitcoinApiPort = 37220;
+//   (<any>global).impleumApiPort = 37221;
+// } else if (args.some(val => val === '--mainnet' || val === '-mainnet')) {
+//   (<any>global).bitcoinApiPort = 37220;
+//   (<any>global).impleumApiPort = 38222;
+// }
 
 //Set custom blockchain protocol ports
 if (args.some(val => val.indexOf("--bitcoinPort=") == 0 || val.indexOf("-bitcoinPort=") == 0)) {
 	bitcoinPort = args.filter(val => val.indexOf("--bitcoinPort=") == 0 || val.indexOf("-bitcoinPort=") == 0)[0].split("=")[1];
 }
-if (args.some(val => val.indexOf("--stratisPort=") == 0 || val.indexOf("-stratisPort=") == 0)) {
-	stratisPort = args.filter(val => val.indexOf("--stratisPort=") == 0 || val.indexOf("-stratisPort=") == 0)[0].split("=")[1];
+if (args.some(val => val.indexOf("--impleumPort=") == 0 || val.indexOf("-impleumPort=") == 0)) {
+	impleumPort = args.filter(val => val.indexOf("--impleumPort=") == 0 || val.indexOf("-impleumPort=") == 0)[0].split("=")[1];
 }
 
 //Set custom API ports
@@ -69,10 +71,10 @@ if (args.some(val => val.indexOf("--bitcoinApiPort=") == 0 || val.indexOf("-bitc
 	customBitcoinApiPort = args.filter(val => val.indexOf("--bitcoinApiPort=") == 0 || val.indexOf("-bitcoinApiPort=") == 0)[0].split("=")[1];
 	(<any>global).bitcoinApiPort = customBitcoinApiPort;
 }
-if (args.some(val => val.indexOf("--stratisApiPort=") == 0 || val.indexOf("-stratisApiPort=") == 0)) {
-	let customStratisApiPort : string;
-	customStratisApiPort = args.filter(val => val.indexOf("--stratisApiPort=") == 0 || val.indexOf("-stratisApiPort=") == 0)[0].split("=")[1];
-	(<any>global).stratisApiPort = customStratisApiPort;
+if (args.some(val => val.indexOf("--impleumApiPort=") == 0 || val.indexOf("-impleumApiPort=") == 0)) {
+	let customImpleimApiPort : string;
+	customImpleimApiPort = args.filter(val => val.indexOf("--impleumApiPort=") == 0 || val.indexOf("-impleumApiPort=") == 0)[0].split("=")[1];
+	(<any>global).impleumApiPort = customImpleimApiPort;
 }
 
 //Set datadir and storedir parameters
@@ -143,10 +145,10 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on('ready', function () {
   if (serve) {
-    console.log('Breeze UI was started in development mode. This requires the user to be running the Breeze Daemon himself.')
+    console.log('Privacy UI was started in development mode. This requires the user to be running the Lite Daemon himself.')
   } else if (startDaemons) {
     startBitcoinApi();
-    startStratisApi();
+    startImpleumApi();
   }
   createTray();
   createWindow();
@@ -185,12 +187,12 @@ function closeBitcoinApi() {
   }
 };
 
-function closeStratisApi() {
+function closeImpleimApi() {
   if (!serve) {
     const http2 = require('http');
     const options2 = {
       hostname: 'localhost',
-      port: (<any>global).stratisApiPort,
+      port: (<any>global).impleumApiPort,
       path: '/api/node/shutdown',
       method: 'POST'
     };
@@ -218,24 +220,32 @@ function startBitcoinApi() {
    commandLineArguments.push("-light");
    commandLineArguments.push("-apiport=" + (<any>global).bitcoinApiPort);
    if(bitcoinPort != null)
-	 commandLineArguments.push("-port=" + bitcoinPort);
+	  commandLineArguments.push("-port=" + bitcoinPort);
 
    if(testnet)
-	 commandLineArguments.push("-testnet");
+	  commandLineArguments.push("-testnet");
    if(regtest)
-	 commandLineArguments.push("-regtest");
+	  commandLineArguments.push("-regtest");
  
    if (noTor)
-	 commandLineArguments.push("-noTor");   
+	  commandLineArguments.push("-noTor");   
 
    if (tumblerProtocol != null)
-	 commandLineArguments.push("-tumblerProtocol=" + tumblerProtocol);   
+	  commandLineArguments.push("-tumblerProtocol=" + tumblerProtocol);   
  
    commandLineArguments.push("-tumblebit");
    commandLineArguments.push("-registration");
    if (dataDir != null)
      commandLineArguments.push("-datadir=" + dataDir);   
    
+   if (os.platform() === 'win32') {
+      commandLineArguments.push("-storedir=" + path.resolve('AppData\\Roaming\\ImpleumNode\\Impleum\\ImpleumTest\\registrationHistory.json'));
+    } else if (os.platform() === 'linux') {
+      commandLineArguments.push("-storedir=" + path.resolve('.impleumnode/impleum/ImpleumTest/registrationHistory.json'));
+    } else {
+      commandLineArguments.push("-storedir=" + path.resolve('.impleumnode/impleum/ImpleumTest/registrationHistory.json'));
+    }
+
    if (storeDir != null)
      commandLineArguments.push("-storedir=" + storeDir);
    
@@ -249,11 +259,11 @@ function startBitcoinApi() {
   });
 }
 
-function startStratisApi() {
-  let stratisProcess;
-  const spawnStratis = require('child_process').spawn;
+function startImpleumApi() {
+  let impleumProcess;
+  const spawnImpleim = require('child_process').spawn;
 
-  // Start Breeze Stratis Daemon
+  // Start Breeze Impleim Daemon
   let apiPath = path.resolve(__dirname, 'assets//daemon//Breeze.Daemon');
   if (os.platform() === 'win32') {
       apiPath = path.resolve(__dirname, '..\\..\\resources\\daemon\\Breeze.Daemon.exe');
@@ -264,28 +274,28 @@ function startStratisApi() {
   }
   
   let commandLineArguments = [];
-  commandLineArguments.push("-stratis");
-  commandLineArguments.push("-apiport=" + (<any>global).stratisApiPort);
-   if(stratisPort != null)
-	 commandLineArguments.push("-port=" + stratisPort);
+  commandLineArguments.push("-impleum");
+  commandLineArguments.push("-apiport=" + (<any>global).impleumApiPort);
+  if(impleumPort != null)
+	 commandLineArguments.push("-port=" + impleumPort);
   
   commandLineArguments.push("-light");
   if(testnet)
-	commandLineArguments.push("-testnet");
+	  commandLineArguments.push("-testnet");
   if(regtest)
     commandLineArguments.push("-regtest");
  
   commandLineArguments.push("-registration");
   if (dataDir != null)
-	commandLineArguments.push("-datadir=" + dataDir);
+	  commandLineArguments.push("-datadir=" + dataDir);
   
-  console.log("Starting Stratis daemon with parameters: " + commandLineArguments);
-  stratisProcess = spawnStratis(apiPath, commandLineArguments, {
+  console.log("Starting Impleim daemon with parameters: " + commandLineArguments);
+  impleumProcess = spawnImpleim(apiPath, commandLineArguments, {
     detached: false
   });
 
-  stratisProcess.stdout.on('data', (data) => {
-    writeLog(`Stratis: ${data}`);
+  impleumProcess.stdout.on('data', (data) => {
+    writeLog(`Impleim: ${data}`);
   });
 }
 
@@ -365,6 +375,6 @@ function createMenu() {
 
 const quit = () => {
   closeBitcoinApi();
-  closeStratisApi();
+  closeImpleimApi();
   app.quit();
 };

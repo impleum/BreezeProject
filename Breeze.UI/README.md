@@ -1,6 +1,6 @@
 # Privacy.UI
 
-Graphical User Interface for Stratis Breeze Wallet.
+Graphical User Interface for Impleum Privacy Wallet.
 
 ## Getting Started
 

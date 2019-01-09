@@ -21,6 +21,10 @@ export class GlobalService {
     return remote.getGlobal('stratisApiPort');
   }
 
+  get impleumApiPort() {
+    return remote.getGlobal('impleumApiPort');
+  }
+
   getWalletPath() {
     return this.walletPath;
   }

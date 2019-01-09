@@ -1,6 +1,6 @@
 {
-  "appId": "com.stratisplatform.breeze",
-  "productName": "Breeze Wallet",
+  "appId": "com.impleumplatform.privacy",
+  "productName": "Privacy Wallet",
   "publish": null,
   "directories": {
     "app": "dist",
@@ -20,7 +20,7 @@
       "deb",
       "tar.gz"
     ],
-    "synopsis": "Breeze Wallet: Stratis' dual-currency full block light wallet with a strong focus on privacy.",
+    "synopsis": "Privacy Wallet: Impleum' dual-currency full block light wallet with a strong focus on privacy.",
     "category": "Utility",
     "artifactName": "${productName}-v${version}-${os}-${arch}.${ext}"
   },
@@ -39,7 +39,7 @@
     "guid": "ed20df62-ff5a-4b83-a5e3-a361357c6e51",
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
-	  "license": "../Licenses/breeze-license.txt"
+	  "license": "../Licenses/impleum-license.txt"
   },
   "msi": {
     "warningsAsErrors": false

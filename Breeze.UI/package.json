@@ -1,17 +1,17 @@
 {
-  "name": "Breeze",
-  "description": "Graphical User Interface for Breeze Wallet.",
+  "name": "Privacy",
+  "description": "Graphical User Interface for Impleum Privacy Wallet.",
   "version": "1.0.1",
   "author": {
-    "name": "Stratis Group Ltd",
-    "email": "support@stratisplatform.com"
+    "name": "Impleim Platform",
+    "email": "support@impleum.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/BreezeHub/BreezeProject",
+  "homepage": "https://github.com/impleum/PrivacyProject",
   "keywords": [
-    "breeze",
+    "privacy",
     "ui",
-    "stratis",
+    "impleum",
     "angular",
     "electron",
     "typescript",

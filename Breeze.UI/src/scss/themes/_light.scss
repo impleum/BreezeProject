@@ -23,9 +23,9 @@ $btn-primary-color: $white !important;
 .btn-lg {font-size:1em;}
 .btn-primary {
     background-color: transparent;
-    background-image: linear-gradient(90deg, #20B7C1 0%, #1387C8 100%) !important;
+    background-image: linear-gradient(90deg, #6B7C93  0%, #3B506E 100%);
     &:hover {
-      background-image: linear-gradient(-90deg, #20B7C1 0%, #1387C8 100%) !important;
+      background-image: linear-gradient(90deg, #3B506E  0%, #6B7C93 100%) !important;
       border-color: transparent !important;
     }
   }
@@ -100,7 +100,7 @@ $btn-primary-color: $white !important;
         &:hover {
           cursor: pointer;
           text-decoration: none !important;
-          background: #F5FCFF;
+          background: #DEF4FF;
           border: 1px solid #BCE8FE;
           box-shadow: 4px 2px 11px 0 rgba(80,96,120,0.10);
         }
@@ -113,7 +113,7 @@ $btn-primary-color: $white !important;
 
     // Tumblebit
     #Tumblebit {
-      i {
+      svg {
         font-size: 4.5rem;
         &.OFF {
           -webkit-text-fill-color: $gray-lighter !important;
@@ -123,6 +123,9 @@ $btn-primary-color: $white !important;
           -webkit-text-fill-color: $brand-primary !important;
           fill: $brand-primary !important;
           animation: fadeIn 2s infinite alternate;
+          path {
+            fill: $brand-primary;
+          }
         }
       }
       @keyframes fadeIn {
@@ -177,5 +180,13 @@ $btn-primary-color: $white !important;
   &.badge-default {
     color: $gray;
     background-color: $white !important;
+  }
+}
+
+
+.hoverable{
+  cursor: pointer;
+  &:hover{
+    background-color: $gray-lighter;
   }
 }

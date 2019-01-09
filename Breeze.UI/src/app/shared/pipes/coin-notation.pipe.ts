@@ -35,22 +35,22 @@ export class CoinNotationPipe implements PipeTransform {
         case "TuBTC":
           temp = value / 100;
           return temp.toFixed(this.decimalLimit);
-        case "STRAT":
+        case "IMPL":
           temp = value / 100000000;
           return temp.toFixed(this.decimalLimit);
-        case "mSTRAT":
+        case "mIMPL":
           temp = value / 100000;
           return temp.toFixed(this.decimalLimit);
-        case "uSTRAT":
+        case "uIMPL":
           temp = value / 100;
           return temp.toFixed(this.decimalLimit);
-        case "TSTRAT":
+        case "TIMPL":
           temp = value / 100000000;
           return temp.toFixed(this.decimalLimit);
-        case "TmSTRAT":
+        case "TmIMPL":
           temp = value / 100000;
           return temp.toFixed(this.decimalLimit);
-        case "TuSTRAT":
+        case "TuIMPL":
           temp = value / 100;
           return temp.toFixed(this.decimalLimit);
       }

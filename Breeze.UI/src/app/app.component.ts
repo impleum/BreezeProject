@@ -38,13 +38,14 @@ export class AppComponent implements OnInit {
   }
 
   private startApp() {
+
     this.loading = false;
     this.router.navigate(['/login']);
   }
 
 
   private setTitle() {
-    const applicationName = 'Breeze Wallet';
+    const applicationName = 'Impleum Privacy Wallet';
     const applicationVersion = remote.app.getVersion();
     const newTitle = `${applicationName} ${applicationVersion}`;
     this.titleService.setTitle(newTitle);

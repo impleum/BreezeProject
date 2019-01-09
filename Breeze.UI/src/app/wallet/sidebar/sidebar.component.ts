@@ -58,13 +58,13 @@ export class SidebarComponent implements OnInit {
     const currentNetwork = this.globalService.getNetwork();
     if (currentNetwork === 'Main') {
       this.globalService.setCoinName('Stratis');
-      this.globalService.setCoinUnit('STRAT');
+      this.globalService.setCoinUnit('IMPL');
     } else if (currentNetwork === 'TestNet') {
       this.globalService.setCoinName('TestStratis');
-      this.globalService.setCoinUnit('TSTRAT');
+      this.globalService.setCoinUnit('TIMPL');
     } else if (currentNetwork === 'RegTest') {
       this.globalService.setCoinName('TestStratis');
-      this.globalService.setCoinUnit('TSTRAT');
+      this.globalService.setCoinUnit('TIMPL');
     }
     this.bitcoinActive = false;
     this.stratisActive = true;

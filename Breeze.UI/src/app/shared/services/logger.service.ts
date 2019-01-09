@@ -66,6 +66,6 @@ export class Log {
     }
 
     private getLogPrefix(): string {
-        return `%c [${this.getDateStamp()}] Breeze wallet:`;
+        return `%c [${this.getDateStamp()}] Privacy wallet:`;
     }
 }

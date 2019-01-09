@@ -43,7 +43,7 @@ After the server starts up & the registration is performed, you will need to mov
 
 As a user, you will need:
   - [.NET Core 1.1.2 SDK 1.0.4](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md) which is available for Windows, Mac OS and several Linux distributions (RHEL, Ubuntu, Debian, Fedora, CentOS, SUSE).
-  - [StratisD](https://https://github.com/impleum/ImpleumQt) fully synced, rpc enabled
+  - [ImpleumD](https://https://github.com/impleum/ImpleumQt) fully synced, rpc enabled
   - [Bitcoin Core 0.14.1](https://bitcoin.org/) or later.  Fully sync'd, rpc enabled.
 
 #### Install .Net Core SDK:
@@ -136,7 +136,7 @@ make -f makefile.unix # This will error if you don't have all dependencies liste
 cp -a impleumd ~/bin   
 ```
 
-###### Step 3: Configure & run StratisD on testnet
+###### Step 3: Configure & run ImpleumD on testnet
 
 Create/edit your impleum.conf:
 ```

@@ -42,7 +42,7 @@ After the server starts up & the registration is performed, you will need to mov
 #### Prerequisites:
 
 As a user, you will need:
-  - [.NET Core 1.1.2 SDK 1.0.4](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md) which is available for Windows, Mac OS and several Linux distributions (RHEL, Ubuntu, Debian, Fedora, CentOS, SUSE).
+  - [.NET Core  2.1.1 SDK 2.1.30](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.1.1-download.md) which is available for Windows, Mac OS and several Linux distributions (RHEL, Ubuntu, Debian, Fedora, CentOS, SUSE).
   - [ImpleumD](https://https://github.com/impleum/ImpleumQt) fully synced, rpc enabled
   - [Bitcoin Core 0.14.1](https://bitcoin.org/) or later.  Fully sync'd, rpc enabled.
 

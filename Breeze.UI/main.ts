@@ -44,6 +44,15 @@ startDaemons = !args.some(val => val === '--noDaemons' || val === '-noDaemons');
 
 testnet = true;
 
+
+electron.remote.globalShortcut.register('CommandOrControl+Shift+K', () => {
+  electron.remote.BrowserWindow.getFocusedWindow().webContents.openDevTools()
+})
+
+window.addEventListener('beforeunload', () => {
+  electron.remote.globalShortcut.unregisterAll()
+})
+
 // if (args.some(val => val === '--testnet' || val === '-testnet')) {
 //   testnet = true;
 //   (<any>global).bitcoinApiPort = 38220;

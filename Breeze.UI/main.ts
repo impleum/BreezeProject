@@ -240,7 +240,7 @@ function startBitcoinApi() {
      commandLineArguments.push("-datadir=" + dataDir);   
    
    if (os.platform() === 'win32') {
-      commandLineArguments.push("-storedir=" + path.join(process.env.HOME, 'AppData\\Roaming\\ImpleumNode\\Impleum\\ImpleumTest\\registrationHistory.json'));
+      commandLineArguments.push("-storedir=" + path.join(process.env.USERPROFILE, 'AppData\\Roaming\\ImpleumNode\\Impleum\\ImpleumTest\\registrationHistory.json'));
     } else if (os.platform() === 'linux') {
       commandLineArguments.push("-storedir=" + path.join(process.env.HOME, '.impleumnode/impleum/ImpleumTest/registrationHistory.json'));
     } else {

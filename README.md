@@ -47,8 +47,8 @@ CI Build
 -
 We use [AppVeyor](https://www.appveyor.com/) for Windows CI builds and [Travis CI](https://travis-ci.org/) for our Linux and MacOS builds. Every time someone pushes to the master branch or create a pull request on it, a build is triggered and a new unstable app release is created.
 
-If you want the latest version of the Breeze Wallet with Privacy Protocol, you can get it here: 
-https://github.com/impleum/PrivateProject/releases/tag/v1.0.0
+If you want the latest version of the Privacy Wallet with Privacy Protocol, you can get it here: 
+https://github.com/impleum/PrivacyProject/releases/tag/v1.0.1
 
 Feedback
 -

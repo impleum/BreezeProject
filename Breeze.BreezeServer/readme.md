@@ -263,7 +263,7 @@ tor -controlport 9051 -cookieauthentication 1
 - This is pre-release alpha software. You should only be working testnet.
 
 ##### Server
-After installing .NET Core, launching stratisd or stratisqt on testnet.  Run the server and an empty configuration file will be generated for you.
+After installing .NET Core, launching impleumd or impleumqt on testnet.  Run the server and an empty configuration file will be generated for you.
 
 ```
 cd Breeze.BreezeServer
@@ -302,7 +302,7 @@ breeze.ipv4=127.0.0.1
 # reference the key file we just generated
 #tumbler.rsakeyfile=/home/dan/.breezeserver/Tumbler.pem
 
-# reference the pubkey of the stratisd testnet wallet containing the registration tx fee
+# reference the pubkey of the impleumd testnet wallet containing the registration tx fee
 # Get a list of your impleumd addresses with `impleumd listaddressgroupings`
 #or generate a 'receive' address if you are using ImpleumQt
 tumbler.ecdsakeyaddress=<impleumd wallet address>
@@ -354,7 +354,7 @@ cp ~/.ntumblebitserver/TestNet/Tumbler.pem ~/.breezeserver/
 
 ##### Setting up your first impleumd wallet
 If you don't yet have a impleum wallet, generate one in impleumd by running the following.
-First jump into your stratis user:
+First jump into your impleum user:
 ```
 sudo su - impleum
 ```

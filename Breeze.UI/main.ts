@@ -36,27 +36,25 @@ let storeDir;
 let bitcoinPort;
 let impleumPort;
 let startDaemons;
-(<any>global).bitcoinApiPort = 38220;
-(<any>global).impleumApiPort = 39222;
+(<any>global).bitcoinApiPort = 37220;
+(<any>global).impleumApiPort = 38222;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve' || val === '-serve');
 startDaemons = !args.some(val => val === '--noDaemons' || val === '-noDaemons');
 
-testnet = true;
 
-
-// if (args.some(val => val === '--testnet' || val === '-testnet')) {
-//   testnet = true;
-//   (<any>global).bitcoinApiPort = 38220;
-//   (<any>global).impleumApiPort = 39222;
-// } else if (args.some(val => val === '--regtest' || val === '-regtest')) {
-//   regtest = true;
-//   (<any>global).bitcoinApiPort = 37220;
-//   (<any>global).impleumApiPort = 37221;
-// } else if (args.some(val => val === '--mainnet' || val === '-mainnet')) {
-//   (<any>global).bitcoinApiPort = 37220;
-//   (<any>global).impleumApiPort = 38222;
-// }
+if (args.some(val => val === '--testnet' || val === '-testnet')) {
+  testnet = true;
+  (<any>global).bitcoinApiPort = 38220;
+  (<any>global).impleumApiPort = 39222;
+} else if (args.some(val => val === '--regtest' || val === '-regtest')) {
+  regtest = true;
+  (<any>global).bitcoinApiPort = 37220;
+  (<any>global).impleumApiPort = 37221;
+} else if (args.some(val => val === '--mainnet' || val === '-mainnet')) {
+  (<any>global).bitcoinApiPort = 37220;
+  (<any>global).impleumApiPort = 38222;
+}
 
 //Set custom blockchain protocol ports
 if (args.some(val => val.indexOf("--bitcoinPort=") == 0 || val.indexOf("-bitcoinPort=") == 0)) {
